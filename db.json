@@ -1,0 +1,22 @@
+{
+  "courses":[
+    {
+      "id":"fs",
+      "name":"First Semester",
+      "price":2000,
+      "duration":3
+    },
+    {
+      "id":"ss",
+      "name":"Second Semester",
+      "price":3000,
+      "duration":3
+    },
+    {
+      "id":"ts",
+      "name":"Third Semester",
+      "price":6000,
+      "duration":3
+    }
+  ]
+}
