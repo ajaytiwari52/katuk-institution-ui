@@ -14,6 +14,7 @@ npm serve --open
 ```
 ## Setup with springboot
 Add below in build
+```
     <build>
         <plugins>
             <plugin>
@@ -118,3 +119,4 @@ Add below in build
             </properties>
         </profile>
     </profiles>
+```
