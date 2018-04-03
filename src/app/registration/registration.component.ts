@@ -16,24 +16,24 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.courseId = this.activatedRoute.snapshot.paramMap.get('course');
-    this.changeCoureTitle();
+    this.changeCourseTitle();
   }
 
-  private changeCoureTitle() {
+  private changeCourseTitle() {
     if (this.courseId === 'fs') {
-      this.createCourse('First', 2000, 3);
+      this.createCourse('First', '2000', 3);
     } else if (this.courseId === 'ss') {
-      this.createCourse('Second', 3000, 3);
+      this.createCourse('Second', '3000', 3);
     } else {
-      this.createCourse('Third', 6000, 3);
+      this.createCourse('Third', '6000', 3);
     }
   }
 
-  private createCourse(semester: string, price: number, duration: number) {
+  private createCourse(semester: string, price: string, duration: number) {
     this.course = new CourseModel();
     this.course.name = semester + ' Semester';
     this.course.price = price;
-    this.course.duration = duration + ' months';
+    this.course.duration = duration;
   }
 
   goBack() {
