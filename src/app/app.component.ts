@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {StoreService} from './home/shared/store.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  private mycourses: any;
+  constructor(private storeSerice: StoreService){
+    this.mycourses = this.storeSerice.read('mycourse');
+  }
+
+  logout(){
+    this.storeSerice.write('mycourse','');
+  }
 }

@@ -6,7 +6,15 @@
         <strong class="span9">Katuk Institution</strong><br>
         <span class="span3 title-text font-italic small">by Ajay Kumar Tiwari</span>
       </a>
+      <a href="mycourses" class="d-flex align-items-center" *ngIf="mycourses">
+        My Courses
+      </a>
     </div>
+    <span>
+      <a href="#" class="d-flex align-items-center" *ngIf="mycourses" (click)="logout()">
+        <small class="logout">Logout</small>
+      </a>
+    </span>
   </div>
 </header>
 <router-outlet></router-outlet>

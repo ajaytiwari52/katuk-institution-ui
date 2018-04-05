@@ -8,11 +8,13 @@ import {HomeModule} from './home/home.module';
 import {AppRoutingModule} from './app-routing.module';
 import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationModule} from './registration/registration.module';
+import { MyCourseComponent } from './my-course/my-course.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyCourseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'katuk-institution'}),
@@ -28,6 +30,6 @@ export class AppModule {
               @Inject(APP_ID) private appId: string) {
     const platform = isPlatformBrowser(platformId) ?
       'in the browser' : 'on the server';
-    console.log(`Running ${platform} with appId=${appId}`);
+    // console.log(`Running ${platform} with appId=${appId}`);
   }
 }
