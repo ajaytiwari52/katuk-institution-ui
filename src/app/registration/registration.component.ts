@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CourseModel} from '../home/shared/course.model';
+import {StoreService} from '../home/shared/store.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +12,7 @@ export class RegistrationComponent implements OnInit {
   private courseId: string;
   private course: CourseModel;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private storeService:StoreService) {
   }
 
   ngOnInit() {
@@ -38,5 +39,10 @@ export class RegistrationComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/home', {id: this.courseId}]);
+  }
+
+  register() {
+    this.storeService.write('mycourse', this.course);
+    this.router.navigate(['/mycourses']);
   }
 }

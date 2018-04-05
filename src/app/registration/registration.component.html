@@ -21,7 +21,7 @@
       </div>
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Personal Details</h4>
-        <form class="needs-validation" novalidate="">
+        <form #regitrationForm="ngForm" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">First name</label>
@@ -159,7 +159,7 @@
             </div>
           </div>
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg" type="submit">Continue to register</button>
+          <button class="btn btn-primary btn-lg" (click)="register()" [disabled]="regitrationForm.inv">Continue to register</button>
           <button class="btn btn-secondary btn-lg" (click)="goBack()">Back</button>
         </form>
       </div>
