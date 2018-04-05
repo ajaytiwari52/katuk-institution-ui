@@ -11,33 +11,22 @@ import {CourseModel} from './shared/course.model';
 })
 export class HomeComponent implements OnInit {
   private courseId: string;
-  isFS = false;
-  isSS = false;
-  isTS = false;
+  isSelected: number;
   courses: CourseModel[];
+  courseEnum = ['fs', 'ss', 'ts'];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private homeService: HomeService) {
+    this.homeService.getCourses().subscribe(data => {
+      this.courses = <CourseModel[]>data;
+    });
   }
 
   ngOnInit() {
-    this.homeService.getCourses().subscribe(data => {
-        this.courses = data;
-        console.log(this.courses);
-    });
     this.courseId = this.activatedRoute.snapshot.paramMap.get('id');
-    if (!_.isUndefined(this.courseId)) {
-      if (this.courseId === 'fs') {
-        this.isFS = true;
-      } else if (this.courseId === 'ss') {
-        this.isSS = true;
-      } else {
-        this.isTS = true;
-      }
-    }
+    this.isSelected = this.courseEnum.indexOf(this.courseId);
   }
 
   goTo(course: any) {
-    console.log(course);
     this.router.navigate(['/registration', course.id]);
   }
 }

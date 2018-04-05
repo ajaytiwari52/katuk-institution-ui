@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HomeService} from './shared/home.service';
 import { HttpClientModule } from '@angular/common/http';
+import {StoreService} from './shared/store.service';
 
 @NgModule(
   {
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
       HomeComponent
     ],
     providers: [
-      HomeService
+      HomeService,
+      StoreService
     ],
     exports: [
       CommonModule
