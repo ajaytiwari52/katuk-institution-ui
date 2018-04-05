@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CourseModel} from '../home/shared/course.model';
 import {StoreService} from '../home/shared/store.service';
+import {Student} from './Student';
 
 @Component({
   selector: 'app-registration',
@@ -11,11 +12,13 @@ import {StoreService} from '../home/shared/store.service';
 export class RegistrationComponent implements OnInit {
   private courseId: string;
   private course: CourseModel;
+  private student: Student;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private storeService:StoreService) {
   }
 
   ngOnInit() {
+    this.student = new Student();
     this.courseId = this.activatedRoute.snapshot.paramMap.get('course');
     this.changeCourseTitle();
   }
@@ -43,6 +46,7 @@ export class RegistrationComponent implements OnInit {
 
   register() {
     this.storeService.write('mycourse', this.course);
+    this.storeService.write('student', this.student);
     this.router.navigate(['/mycourses']);
   }
 }
