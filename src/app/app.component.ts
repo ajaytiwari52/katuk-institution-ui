@@ -15,4 +15,8 @@ export class AppComponent {
   logout(){
     this.storeSerice.write('mycourse','');
   }
+
+  profile(){
+
+  }
 }

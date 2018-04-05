@@ -1,20 +1,23 @@
 <header>
   <div class="navbar navbar-dark bg-dark box-shadow">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
+    <div class="container d-flex">
+      <a href="#" class="navbar-brand d-flex">
         <img src="favicon.ico">
         <strong class="span9">Katuk Institution</strong><br>
         <span class="span3 title-text font-italic small">by Ajay Kumar Tiwari</span>
       </a>
-      <a href="mycourses" class="d-flex align-items-center" *ngIf="mycourses">
+      <span class="menus justify-content-end">
+      <a href="mycourses" class="mycourse" *ngIf="mycourses">
         My Courses
       </a>
-    </div>
-    <span>
-      <a href="#" class="d-flex align-items-center" *ngIf="mycourses" (click)="logout()">
+      <a href="#" class="" *ngIf="mycourses">
+        <small class="logout">Profile</small>
+      </a>
+      <a href="#" class="" *ngIf="mycourses" (click)="logout()">
         <small class="logout">Logout</small>
       </a>
-    </span>
+      </span>
+    </div>
   </div>
 </header>
 <router-outlet></router-outlet>
